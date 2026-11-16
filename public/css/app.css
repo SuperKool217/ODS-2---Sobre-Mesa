@@ -70,11 +70,12 @@ a { color: #c2410c; font-weight: 600; margin-right: 12px; }
 .auth-aside {
   position: relative;
   overflow: hidden;
+  border: 1px solid #f1e4d8;
   border-radius: 22px;
   padding: 38px 34px;
-  background: linear-gradient(145deg, #173f35, #245b4a 72%, #2d7258);
-  color: white;
-  box-shadow: 0 16px 40px rgba(24, 62, 51, .16);
+  background: linear-gradient(145deg, #fffdf9 0%, #fff8f2 58%, #fff1e7 100%);
+  color: #17212b;
+  box-shadow: 0 16px 40px rgba(124, 75, 39, .07);
 }
 .auth-aside::after {
   content: "";
@@ -83,13 +84,13 @@ a { color: #c2410c; font-weight: 600; margin-right: 12px; }
   height: 260px;
   right: -110px;
   bottom: -115px;
-  border: 1px solid rgba(255,255,255,.18);
+  border: 1px solid rgba(234, 88, 12, .12);
   border-radius: 50%;
-  box-shadow: 0 0 0 28px rgba(255,255,255,.04), 0 0 0 58px rgba(255,255,255,.03);
+  box-shadow: 0 0 0 28px rgba(234, 88, 12, .035), 0 0 0 58px rgba(234, 88, 12, .025);
 }
 .auth-eyebrow {
   margin: 0 0 14px;
-  color: #fed7aa;
+  color: #c2410c;
   font-size: .75rem;
   font-weight: 800;
   letter-spacing: .12em;
@@ -98,7 +99,7 @@ a { color: #c2410c; font-weight: 600; margin-right: 12px; }
 .auth-aside h1 {
   max-width: 420px;
   margin: 0;
-  color: white;
+  color: #17212b;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.08;
   letter-spacing: -.04em;
@@ -106,7 +107,7 @@ a { color: #c2410c; font-weight: 600; margin-right: 12px; }
 .auth-aside-copy {
   max-width: 430px;
   margin: 18px 0 30px;
-  color: #e4eee9;
+  color: #64748b;
   line-height: 1.65;
 }
 .auth-benefits { display: grid; gap: 20px; }
@@ -117,22 +118,23 @@ a { color: #c2410c; font-weight: 600; margin-right: 12px; }
   place-items: center;
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(255,255,255,.35);
+  border: 1px solid #fed7aa;
   border-radius: 11px;
-  color: #ffcf9f;
+  background: #fff7ed;
+  color: #c2410c;
   font-size: .78rem;
   font-weight: 800;
 }
 .auth-benefit div { display: grid; gap: 4px; }
-.auth-benefit strong { color: white; font-size: .95rem; }
-.auth-benefit span:last-child { color: #d4e4dc; font-size: .86rem; line-height: 1.5; }
+.auth-benefit strong { color: #17212b; font-size: .95rem; }
+.auth-benefit span:last-child { color: #64748b; font-size: .86rem; line-height: 1.5; }
 .auth-aside-footnote {
   position: relative;
   z-index: 1;
   margin: 34px 0 0;
   padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,.18);
-  color: #d4e4dc;
+  border-top: 1px solid #f1dfd1;
+  color: #64748b;
   font-size: .82rem;
 }
 .auth-card {
