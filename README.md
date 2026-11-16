@@ -4,6 +4,8 @@ Sobre-Mesa es una plataforma académica que conecta a personas donantes y organi
 
 **Aplicación desplegada:** [https://cerohambre-web.onrender.com](https://cerohambre-web.onrender.com)
 
+**Nombre público:** Sobre-Mesa. El subdominio `cerohambre-web.onrender.com` se conserva como dirección técnica actual para no interrumpir los enlaces de despliegue, confirmación de PayU y retorno del comprador.
+
 > La integración de pagos está configurada exclusivamente para PayU Latam Sandbox. No procesa pagos reales.
 
 ## Tecnologías

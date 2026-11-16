@@ -40,6 +40,8 @@ El endpoint de confirmación requiere una URL pública HTTPS para recibir notifi
 
 La aplicación está desplegada en [https://cerohambre-web.onrender.com](https://cerohambre-web.onrender.com). El archivo `render.yaml` contiene la configuración del servicio web y PostgreSQL.
 
+La marca pública de la plataforma es Sobre-Mesa. El subdominio actual conserva el nombre técnico anterior para mantener funcionando los enlaces de confirmación y retorno.
+
 En Render, mantén como variables privadas los secretos `JWT_SECRET`, `QR_SECRET` y `DEMO_ORG_PASSWORD`. No sustituyas las credenciales de Sandbox por credenciales reales para las pruebas académicas.
 
 ## Pruebas
