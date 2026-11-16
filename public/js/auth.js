@@ -13,7 +13,7 @@ form?.addEventListener('submit', async (event) => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'No se pudo iniciar sesión.');
     saveSession(data.user);
-    location.href = data.user.rol === 'organizacion' ? '/organizacion.html' : '/donaciones.html';
+    location.href = '/';
   } catch (error) {
     message.textContent = error.message;
   }
