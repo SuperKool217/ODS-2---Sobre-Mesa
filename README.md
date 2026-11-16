@@ -1,6 +1,6 @@
-# CeroHambre — ODS 2: Hambre Cero
+# Sobre-Mesa — ODS 2: Hambre Cero
 
-CeroHambre es una plataforma académica orientada a apoyar iniciativas de seguridad alimentaria mediante campañas, donaciones y seguimiento verificable de entregas.
+Sobre-Mesa es una plataforma académica que conecta a personas donantes y organizaciones para apoyar iniciativas de seguridad alimentaria mediante campañas, donaciones y seguimiento verificable de entregas.
 
 **Aplicación desplegada:** [https://cerohambre-web.onrender.com](https://cerohambre-web.onrender.com)
 

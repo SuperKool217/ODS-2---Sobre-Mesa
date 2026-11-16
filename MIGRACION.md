@@ -1,4 +1,4 @@
-# Información de instalación y migración de CeroHambre
+# Información de instalación y migración de Sobre-Mesa
 
 Esta versión utiliza Node.js, Express, PostgreSQL y PayU Latam WebCheckout en Sandbox. La confirmación del pago se procesa en el backend mediante la notificación de PayU; el retorno del navegador no modifica por sí solo el estado financiero.
 

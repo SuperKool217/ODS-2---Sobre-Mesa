@@ -1,8 +1,8 @@
 {
-  "name": "cerohambre",
+  "name": "sobre-mesa",
   "version": "2.0.0",
   "private": true,
-  "description": "Plataforma académica ODS 2 con donaciones PayU Sandbox y trazabilidad de entregas mediante QR dinámico.",
+  "description": "Sobre-Mesa: plataforma académica ODS 2 con donaciones PayU Sandbox y trazabilidad de entregas mediante QR dinámico.",
   "type": "module",
   "engines": {
     "node": ">=22"
