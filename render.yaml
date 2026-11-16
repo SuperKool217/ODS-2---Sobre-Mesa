@@ -1,0 +1,50 @@
+databases:
+  - name: cerohambre-db
+    plan: free
+    region: virginia
+    databaseName: cerohambre
+    user: cerohambre_user
+
+services:
+  - type: web
+    name: cerohambre-web
+    runtime: node
+    plan: free
+    region: virginia
+    buildCommand: npm install
+    startCommand: npm run db:migrate && npm run db:seed && npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cerohambre-db
+          property: connectionString
+      - key: APP_BASE_URL
+        fromService:
+          name: cerohambre-web
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: JWT_SECRET
+        generateValue: true
+      - key: QR_SECRET
+        generateValue: true
+      - key: DEMO_ORG_PASSWORD
+        generateValue: true
+      - key: PAYU_ENVIRONMENT
+        value: sandbox
+      - key: PAYU_MERCHANT_ID
+        value: "508029"
+      - key: PAYU_ACCOUNT_ID
+        value: "512321"
+      - key: PAYU_API_KEY
+        value: 4Vj8eK4rloUd272L48hsrarnUA
+      - key: PAYU_SIGNATURE_ALGORITHM
+        value: SHA256
+      - key: PAYU_CONFIRMATION_SIGNATURE_ALGORITHM
+        value: MD5
+      - key: MAX_PHOTO_SIZE_MB
+        value: 5

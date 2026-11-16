@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Donar | CeroHambre</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <main class="page">
+    <a href="/">Volver al inicio</a>
+    <section class="panel">
+      <h1>Realizar una donación</h1>
+      <p>Los pagos de esta versión se procesan en PayU Sandbox. Es un entorno de pruebas y no se realiza un cobro real.</p>
+      <form id="donation-form" class="form-grid">
+        <label>Campaña<select id="campaignId" required></select></label>
+        <label>Monto en pesos colombianos<input id="amountCop" type="number" min="1000" max="50000000" step="1000" value="10000" required></label>
+        <label>Tipo de documento
+          <select id="documentType" required>
+            <option value="CC">Cédula de ciudadanía</option>
+            <option value="CE">Cédula de extranjería</option>
+            <option value="NIT">NIT</option>
+            <option value="TI">Tarjeta de identidad</option>
+            <option value="PP">Pasaporte</option>
+          </select>
+        </label>
+        <label>Número de documento<input id="documentNumber" type="text" minlength="5" maxlength="25" autocomplete="off" required></label>
+        <label>Teléfono de contacto<input id="phone" type="tel" minlength="7" maxlength="20" autocomplete="tel" required></label>
+        <button type="submit">Continuar con PayU Sandbox</button>
+      </form>
+      <p id="message" class="notice" role="status"></p>
+      <p class="muted">El documento y el teléfono se envían a PayU para completar el formulario de prueba. CeroHambre no almacena esos dos datos en esta versión.</p>
+    </section>
+  </main>
+  <script type="module" src="/js/donate.js"></script>
+</body>
+</html>
