@@ -58,9 +58,12 @@ function renderSessionNavigation() {
 }
 
 async function refreshCampaigns() {
+  const counters = document.querySelectorAll('[data-campaign-count]');
+  if (!counters.length) return;
+
   try {
     const data = await apiFetch('/api/campanas');
-    document.querySelectorAll('[data-campaign-count]').forEach((node) => {
+    counters.forEach((node) => {
       node.textContent = String(data.campaigns.length);
     });
   } catch (error) {
