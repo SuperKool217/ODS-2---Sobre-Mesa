@@ -30,14 +30,16 @@ function renderSessionNavigation() {
   const linkClass = 'text-gray-600 hover:text-orange-600 font-medium transition-colors';
   const actionClass = 'bg-orange-600 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg shadow-orange-500/30 hover:bg-orange-500 hover:-translate-y-0.5 transition-all duration-200';
 
+  const initiativesLink = createLink('Iniciativas', '#iniciativas', linkClass);
+  const transparencyLink = createLink('Transparencia', '#transparencia', linkClass);
+  const aboutLink = createLink('Nosotros', '#nosotros', linkClass);
+
   const roleLink = user.rol === 'organizacion'
     ? createLink('Panel de organización', '/organizacion.html', linkClass)
     : createLink('Mis donaciones', '/donaciones.html', linkClass);
-
-  const campaignLink = createLink('Campañas', '#campanas', linkClass);
   const primaryAction = user.rol === 'donante'
     ? createLink('Donar ahora', '/donar.html', actionClass)
-    : createLink('Ver campañas', '#campanas', actionClass);
+    : createLink('Ver campañas', '#iniciativas', actionClass);
 
   const signOut = document.createElement('button');
   signOut.type = 'button';
@@ -54,7 +56,8 @@ function renderSessionNavigation() {
     location.assign('/');
   });
 
-  navigation.replaceChildren(greeting, campaignLink, roleLink, primaryAction, signOut);
+  navigation.className = 'hidden md:flex gap-5 items-center';
+  navigation.replaceChildren(greeting, initiativesLink, transparencyLink, aboutLink, roleLink, primaryAction, signOut);
 }
 
 async function refreshCampaigns() {
