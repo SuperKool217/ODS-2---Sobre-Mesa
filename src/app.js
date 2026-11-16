@@ -62,7 +62,7 @@ app.use('/api', (req, res, next) => {
 app.get('/api/health', async (req, res, next) => {
   try {
     await pool.query('SELECT 1');
-    res.json({ status: 'ok', database: 'connected', service: 'CeroHambre API' });
+    res.json({ status: 'ok', database: 'connected', service: 'Sobre-Mesa API' });
   } catch (error) { next(error); }
 });
 app.use('/api/auth', authRoutes);

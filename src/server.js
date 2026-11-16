@@ -15,7 +15,7 @@ if (process.env.JWT_SECRET.length < 32 || process.env.QR_SECRET.length < 32) {
 
 const port = Number(process.env.PORT || 3000);
 const server = app.listen(port, '0.0.0.0', () => {
-  console.log(`CeroHambre escucha en el puerto ${port}`);
+  console.log(`Sobre-Mesa escucha en el puerto ${port}`);
 });
 
 async function shutdown(signal) {

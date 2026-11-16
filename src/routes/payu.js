@@ -114,7 +114,7 @@ donationRouter.post('/checkout', authenticate, requireRole('donante'), async (re
       accountId: config.accountId,
       algorithmSignature: process.env.PAYU_SIGNATURE_ALGORITHM || 'SHA256',
       signature,
-      description: `DonacionCeroHambre${inserted.rows[0].id}`,
+      description: `DonacionSobreMesa${inserted.rows[0].id}`,
       referenceCode: reference,
       amount,
       tax: '0',
