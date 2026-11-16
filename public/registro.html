@@ -1,3 +1,172 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Registro | CeroHambre</title><link rel="stylesheet" href="/css/app.css"></head>
-<body><main class="page"><a href="/">Volver al inicio</a><section class="panel"><h1>Crear cuenta</h1><form id="register-form" class="form-grid"><label>Nombre completo<input name="nombre" required maxlength="150"></label><label>Correo electrónico<input name="email" type="email" required></label><label>Contraseña<input name="password" type="password" minlength="10" required autocomplete="new-password"></label><label>Tipo de cuenta<select id="role" name="rol"><option value="donante">Donante</option><option value="organizacion">Organización</option></select></label><div id="organization-fields" hidden><label>Nombre de la organización<input name="nombreOrganizacion"></label><label>Ubicación<input name="ubicacion"></label><label>Documento legal<input name="documentoLegal"></label></div><button type="submit">Registrarme</button></form><p id="message" class="notice" role="status"></p></section></main><script type="module" src="/js/register.js"></script></body></html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crea una cuenta para participar en campañas y fortalecer la seguridad alimentaria.">
+  <title>Crear cuenta | CeroHambre</title>
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="auth-page">
+  <header class="auth-header">
+    <a class="auth-brand" href="/" aria-label="CeroHambre, ir al inicio">
+      <span class="auth-brand-mark" aria-hidden="true">CH</span>
+      <span>Cero<span>Hambre</span></span>
+    </a>
+    <a class="auth-back-link" href="/">Volver al inicio</a>
+  </header>
+
+  <main class="auth-layout">
+    <aside class="auth-aside">
+      <p class="auth-eyebrow">Una comunidad que suma</p>
+      <h1>La ayuda empieza con un primer paso.</h1>
+      <p class="auth-aside-copy">Crea tu cuenta para conectar con iniciativas de alimentación y aportar a una gestión de donaciones más transparente.</p>
+      <div class="auth-benefits">
+        <div class="auth-benefit">
+          <span class="auth-benefit-number">01</span>
+          <div><strong>Elige cómo participar</strong><span>Regístrate como donante o como organización.</span></div>
+        </div>
+        <div class="auth-benefit">
+          <span class="auth-benefit-number">02</span>
+          <div><strong>Completa tus datos</strong><span>Solo solicitamos la información necesaria para crear tu cuenta.</span></div>
+        </div>
+        <div class="auth-benefit">
+          <span class="auth-benefit-number">03</span>
+          <div><strong>Continúa en la plataforma</strong><span>Al terminar, podrás iniciar sesión y acceder a las funciones de tu cuenta.</span></div>
+        </div>
+      </div>
+      <p class="auth-aside-footnote">Tu participación ayuda a fortalecer la seguridad alimentaria.</p>
+    </aside>
+
+    <section class="auth-card" aria-labelledby="register-title">
+      <div class="auth-card-heading">
+        <p class="auth-eyebrow auth-eyebrow-light">Registro</p>
+        <h2 id="register-title">Crea tu cuenta</h2>
+        <p>Completa estos dos pasos para comenzar.</p>
+      </div>
+
+      <ol class="auth-stepper" id="register-stepper" aria-label="Progreso del registro">
+        <li id="progress-step-1" aria-current="step"><span>1</span><span>Tipo de cuenta</span></li>
+        <li id="progress-step-2"><span>2</span><span>Tus datos</span></li>
+      </ol>
+
+      <form id="register-form" novalidate>
+        <section id="account-step" class="register-step" aria-labelledby="account-step-title">
+          <h3 id="account-step-title">¿Cómo quieres participar?</h3>
+          <p class="auth-step-description">Selecciona el tipo de cuenta que mejor describe tu participación.</p>
+
+          <fieldset class="account-options">
+            <legend class="visually-hidden">Tipo de cuenta</legend>
+            <label class="account-option">
+              <input type="radio" name="rol" value="donante" required>
+              <span class="account-option-content">
+                <span class="account-option-top"><strong>Quiero donar</strong><span class="account-option-check" aria-hidden="true"></span></span>
+                <span>Para personas que desean apoyar campañas y realizar donaciones.</span>
+                <span class="account-option-tag">Cuenta de donante</span>
+              </span>
+            </label>
+
+            <label class="account-option">
+              <input type="radio" name="rol" value="organizacion" required>
+              <span class="account-option-content">
+                <span class="account-option-top"><strong>Represento una organización</strong><span class="account-option-check" aria-hidden="true"></span></span>
+                <span>Para fundaciones, asociaciones y organizaciones que gestionan iniciativas alimentarias.</span>
+                <span class="account-option-tag">Cuenta de organización</span>
+              </span>
+            </label>
+          </fieldset>
+
+          <p class="auth-inline-note">Las cuentas de organización requieren verificación administrativa de sus datos.</p>
+          <div class="auth-feedback" id="message" role="alert" aria-live="polite" hidden></div>
+          <div class="auth-actions auth-actions-end">
+            <button class="auth-button auth-button-primary" type="button" id="next-step">Continuar con mis datos</button>
+          </div>
+        </section>
+
+        <section id="details-step" class="register-step" aria-labelledby="details-step-title" hidden>
+          <div class="selected-role-banner">
+            <div><span class="selected-role-label">Tipo de cuenta</span><strong id="selected-role">Cuenta de donante</strong></div>
+            <button type="button" class="auth-text-button" id="back-to-role">Cambiar</button>
+          </div>
+
+          <h3 id="details-step-title">Cuéntanos sobre ti</h3>
+          <p class="auth-step-description">Usaremos estos datos para identificar tu cuenta y mantenerte al tanto de tus actividades.</p>
+
+          <div class="auth-field-grid">
+            <label class="auth-field auth-field-full" for="nombre">
+              Nombre completo
+              <input id="nombre" name="nombre" type="text" autocomplete="name" maxlength="150" placeholder="Escribe tu nombre y apellido" required>
+            </label>
+
+            <label class="auth-field auth-field-full" for="email">
+              Correo electrónico
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="180" placeholder="nombre@correo.com" required>
+              <small>Lo utilizarás para iniciar sesión.</small>
+            </label>
+
+            <label class="auth-field" for="password">
+              Contraseña
+              <span class="auth-password-field">
+                <input id="password" name="password" type="password" minlength="10" maxlength="72" autocomplete="new-password" placeholder="Crea una contraseña" required>
+                <button type="button" class="password-toggle" data-password-toggle="password" aria-controls="password" aria-pressed="false">Mostrar</button>
+              </span>
+              <small>Debe tener al menos 10 caracteres.</small>
+            </label>
+
+            <label class="auth-field" for="password-confirm">
+              Confirma tu contraseña
+              <span class="auth-password-field">
+                <input id="password-confirm" type="password" minlength="10" maxlength="72" autocomplete="new-password" placeholder="Escríbela de nuevo" required>
+                <button type="button" class="password-toggle" data-password-toggle="password-confirm" aria-controls="password-confirm" aria-pressed="false">Mostrar</button>
+              </span>
+            </label>
+          </div>
+
+          <div id="organization-fields" class="organization-fields" hidden>
+            <div class="organization-fields-heading">
+              <h4>Datos de la organización</h4>
+              <p>Completa la información de la entidad que representas.</p>
+            </div>
+            <div class="auth-field-grid">
+              <label class="auth-field auth-field-full" for="nombreOrganizacion">
+                Nombre de la organización
+                <input id="nombreOrganizacion" name="nombreOrganizacion" type="text" maxlength="200" placeholder="Nombre legal o reconocido de la entidad" data-organization-required>
+              </label>
+
+              <label class="auth-field" for="ubicacion">
+                Ciudad o municipio
+                <input id="ubicacion" name="ubicacion" type="text" maxlength="255" placeholder="Ej. Montería, Córdoba" data-organization-required>
+              </label>
+
+              <label class="auth-field" for="documentoLegal">
+                NIT o documento legal
+                <input id="documentoLegal" name="documentoLegal" type="text" maxlength="60" placeholder="Documento de la entidad" data-organization-required>
+              </label>
+            </div>
+            <p class="auth-inline-note">Después del registro, la organización deberá pasar por una verificación administrativa.</p>
+          </div>
+
+          <div class="auth-feedback" id="details-message" role="alert" aria-live="polite" hidden></div>
+          <div class="auth-actions auth-actions-between">
+            <button class="auth-button auth-button-secondary" type="button" id="back-step">Volver</button>
+            <button class="auth-button auth-button-primary" type="submit" id="submit-register">Crear cuenta</button>
+          </div>
+          <p class="auth-legal-note">Al crear tu cuenta, confirmas que los datos proporcionados son correctos.</p>
+        </section>
+      </form>
+
+      <section id="success-panel" class="auth-success" aria-live="polite" hidden>
+        <span class="auth-success-mark" aria-hidden="true">✓</span>
+        <h3>¡Tu registro se completó!</h3>
+        <p id="success-message">Tu cuenta fue creada correctamente.</p>
+        <a class="auth-button auth-button-primary" href="/login.html">Ir a iniciar sesión</a>
+        <a class="auth-success-link" href="/">Volver al inicio</a>
+      </section>
+
+      <p class="auth-switch-link">¿Ya tienes una cuenta? <a href="/login.html">Inicia sesión</a></p>
+    </section>
+  </main>
+
+  <script type="module" src="/js/register.js"></script>
+</body>
+</html>
